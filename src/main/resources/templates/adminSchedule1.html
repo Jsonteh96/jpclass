@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="en">
+    <head>
+		<!-- Required meta tags -->
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+		<!-- Material Design for Bootstrap fonts and icons -->
+		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Material+Icons">
+
+		<!-- Material Design for Bootstrap CSS -->
+		<link rel="stylesheet" href="https://unpkg.com/bootstrap-material-design@4.1.1/dist/css/bootstrap-material-design.min.css" 
+		integrity="sha384-wXznGJNEXNG1NFsbm0ugrLFMQPWswR3lds2VeinahP8N0zJw9VWSopbjv2x7WCvX" crossorigin="anonymous">
+		<link rel="stylesheet" type="text/css" href="style_adminschedule1.css">
+		<title>Admin Class Schedule</title>
+	</head>
+	
+	<body>
+	<!--nav bar-->  
+		<nav class="navbar navbar-expand-lg navbar-light bg-light">
+		  <div class="collapse navbar-collapse" id="navbarNav">
+			<ul class="navbar-nav">
+			  <li class="nav-item ">
+				<a class="nav-link" href="#">Home </a>
+			  </li>
+			  <li class="nav-item ">
+				<a class="nav-link" href="#">Student </a>
+			  </li>
+			  <li class="nav-item active">
+				<a class="nav-link" href="#">Schedule <span class="sr-only">(current)</span></a>
+			  </li>
+			  <li class="nav-item">
+				<a class="nav-link" href="address.html">Classroom</a>
+			  </li>
+			</ul>
+		  </div>
+		  <form class="form-inline">
+			<button class="btn btn-outline-success my-2 my-sm-0" type="submit">Log out</button>
+		  </form>
+		</nav>
+		
+	<div class="scheduleApp_f18ino0j">
+			<div class="appLeft_fl69f7n">
+				<div class="buttonBar_f1w98fo6">
+					<div class="buttonContainer_f1htoe8p">
+						<a tabindex="0" class="f1tq9kxj addButton">
+							<div class="iconContainer_fpomfby">
+								<svg height="24" version="1.1" viewBox="0 0 24 24" 
+								width="24" xmlns="http://www.w3.org/2000/svg">
+								</svg>
+							</div>
+							<div class="labelContainer_f1pshi8p">
+								<label>Add Item</label>
+							</div>
+						</a>
+					</div>
+					<div class="buttonContainer_f1htoe8p">
+						<a tabindex="0" class="f1tq9kxj editButton">
+							<div class="iconContainer_fpomfby">
+								<svg height="24" version="1.1" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+								</svg>
+							</div>
+							<div class="labelContainer_f1pshi8p">
+								<label>Edit Item</label>
+							</div>
+						</a>
+					</div>
+					<div class="buttonContainer_f1htoe8p">
+						<a tabindex="0" class="f1tq9kxj deleteButton">
+							<div class="iconContainer_fpomfby">
+								<svg height="24" version="1.1" viewBox="0 0 24 24" 
+								width="24" xmlns="http://www.w3.org/2000/svg"> 
+								</svg>
+							</div>
+							<div class="labelContainer_f1pshi8p">
+								<label>Delete Item</label>
+							</div>
+						</a>
+					</div>
+				</div>
+				
+				<div class="appRight_f11wsrxy">
+					<div class="calendar_fihxbqq calendar">
+						<div class="bar_f1m7rbf8">
+							<div class="logoContainer_f1vpqvog">
+								<div class="logo_f394wot">
+									<svg clip-rule="evenodd" stroke-linejoin="round" stroke-miterlimit="1.4142" 
+									version="1.1" viewBox="0 0 70 11" xml:space="preserve" xmlns="http://www.w3.org/2000/svg">
+									</svg>
+								</div>
+							</div>
+							<div class="textboxContainer_f1o2w27x">
+								<input type="text" autofocus="" placeholder="Schedule Title" maxlength="300" 
+								class="textboxDefault_f13kocpp" style="text-align: center; font-size: 14px; width: 100%; padding-left: 0px;">
+							</div>
+							<div class="settingsButtonContainer_f1kzzu38">
+								<a tabindex="0" class="settingsButton_fh7pxti settingsButton">
+									<div class="settingsIcon_flx7rbn">
+										<svg height="24" version="1.1" viewBox="0 0 24 24" 
+										width="24" xmlns="http://www.w3.org/2000/svg">
+										</svg>
+									</div>
+									<label>Settings</label>
+								</a>
+							</div>
+						</div>
+						<div class="popupManagerContainer_f1mgyl9u"></div>
+						<div id="schedule-canvas-container" class="canvasContainer_f10wuyl8">
+							<canvas id="schedule-canvas" width="688" height="425" style="cursor: auto;"></canvas>
+						</div>
+					</div>
+				</div>
+				<div class="popupManagerContainer_f1mgyl9u"></div>
+				<div id="schedule-canvas-container" class="canvasContainer_f10wuyl8">
+					<canvas id="schedule-canvas" width="688" height="425" style="cursor: auto;"></canvas>
+				</div>
+			</div>
+		</div>	
+	</body>
+</html>  
