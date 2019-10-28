@@ -39,8 +39,7 @@ public class ClassroomController {
 	}
 	
 	@RequestMapping(value = "deleteClass/{cid}")
-	public String deleteClass(@ModelAttribute("cid") String cid) {
-		System.out.println("jjj");
+	public String deleteClass(@ModelAttribute("classroom") String cid) {
 		classroomService.deleteClass(cid);
 	    return "redirect:/classroom";
 	}
