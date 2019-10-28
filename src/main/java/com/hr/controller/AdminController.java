@@ -18,10 +18,10 @@ public class AdminController {
 	    return "schedule";
 	}
 	
-	@RequestMapping({"/classroom","/classroom.html"})
+	/*@RequestMapping({"/classroom","/classroom.html"})
 	public String viewClassRoomPage(Model model) {
-	    return "address";
-	}
+	    return "classroom";
+	}*/
 	
 	@RequestMapping({"/tableview","/tableview.html"})
 	public String viewTableViewPage(Model model) {
