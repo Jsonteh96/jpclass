@@ -1,6 +1,5 @@
 package com.hr.controller;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,7 +19,7 @@ public class StudentController {
 	private StudentService studentService;
 	
 	@RequestMapping("/student")
-	public String viewHomePage(Model model) {
+	public String viewStudentPage(Model model) {
 		Student student = new Student();
 		List<Student> listStudents = studentService.getAllStudents();
 		model.addAttribute("student", student);
