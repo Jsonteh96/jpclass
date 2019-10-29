@@ -25,19 +25,19 @@
         <img src="image/human2.png" class="pic">
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="home.html">Home </a>
+        <a class="nav-link" th:href="@{/home}">Home </a>
       </li> 
       <li class="nav-item">
-        <a class="nav-link" href="tableView.html">TableView</a>
+        <a class="nav-link" th:href="@{/tableview}">TableView</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="student.html">Student</a>
+        <a class="nav-link" th:href="@{/student}">Student</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="schedule.html">Schedule</a>
+        <a class="nav-link" th:href="@{/schedule}">Schedule</a>
       </li>
       <li class="nav-item active">
-        <a class="nav-link" href="classroom.html">Classroom <span class="sr-only">(current)</span></a>
+        <a class="nav-link" th:href="@{/classroom}">Classroom <span class="sr-only">(current)</span></a>
       </li>
     </ul>
   </div>
@@ -95,9 +95,9 @@
 						<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
 					</div>
 					<div class="modal-body">
-                        <div class=="form-group">
+            <div class=="form-group">
                             <label>ID</label>
-                            <input type="text" th:field="*{cid}" class="form-control" required>
+            <input type="text" th:field="*{cid}" class="form-control" required>
                         </div>					
 						<div class="form-group">
 							<label>Name</label>

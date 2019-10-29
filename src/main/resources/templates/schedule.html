@@ -28,7 +28,7 @@
 	
 </head>
 
-<body class="dx-viewport">
+<body>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
 		<div class="collapse navbar-collapse" id="navbarNav">
 			<ul class="navbar-nav">
@@ -36,19 +36,19 @@
 				<img src="image/human2.png" class="pic">
 			  </li>
 			  <li class="nav-item ">
-				<a class="nav-link" href="home.html">Home </a>
+				<a class="nav-link" th:href="@{/home}">Home </a>
 			  </li>
 			  <li class="nav-item">
-				<a class="nav-link" href="tableView.html">TableView</a>
+				<a class="nav-link" th:href="@{/tableview}">TableView</a>
 			  </li>
 			  <li class="nav-item">
-				<a class="nav-link" href="student.html">Student</a>
+				<a class="nav-link" th:href="@{/student}">Student</a>
 			  </li>
 			  <li class="nav-item active">
-				<a class="nav-link" href="adminSchedule.html">Schedule<span class="sr-only">(current)</span></a>
+				<a class="nav-link" th:href="@{/schedule}">Schedule<span class="sr-only">(current)</span></a>
 			  </li>
 			  <li class="nav-item">
-				<a class="nav-link" href="address.html">Classroom</a>
+				<a class="nav-link" th:href="@{/classroom}">Classroom</a>
 			  </li> 
 			</ul>
 		</div>

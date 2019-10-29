@@ -95,10 +95,10 @@
 		color: #2196F3;
 	}
 	table.table td a.edit {
-        color: #FFC107;
+        color: #006FFF;
     }
     table.table td a.delete {
-        color: #F44336;
+        color: #FF0000;
     }
     table.table td i {
         font-size: 19px;
@@ -185,7 +185,7 @@
     }
     .search-box{
     margin-top: 2rem;
-    margin-left: 32rem;
+    margin-left: 37rem;
 }
     .pic{    
     width: 90px;
