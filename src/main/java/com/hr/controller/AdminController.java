@@ -15,6 +15,11 @@ public class AdminController {
 	    return "home";
 	}
 	
+	@RequestMapping({"/home2","/home2.html"})
+	public String viewHomePage2(Model model) {
+	    return "home2";
+	}	
+	
 	@RequestMapping({"/schedule","/schedule.html"})
 	public String viewSchedulePage(Model model) {
 	    return "schedule";

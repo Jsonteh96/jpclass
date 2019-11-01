@@ -11,7 +11,7 @@
     <!-- Material Design for Bootstrap CSS -->
     <link rel="stylesheet" href="https://unpkg.com/bootstrap-material-design@4.1.1/dist/css/bootstrap-material-design.min.css" integrity="sha384-wXznGJNEXNG1NFsbm0ugrLFMQPWswR3lds2VeinahP8N0zJw9VWSopbjv2x7WCvX" crossorigin="anonymous">
 <link rel="stylesheet" type="text/css" href="css/style_classroom.css">
-    <title>Classroom</title>
+    <title>教室</title>
   </head>
   <body>
 
@@ -25,24 +25,24 @@
         <img src="image/human2.png" class="pic">
       </li>-->
       <li class="nav-item">
-        <a class="nav-link" th:href="@{/home}">Home</a>
+        <a class="nav-link" th:href="@{/home}">ホーム</a>
       </li> 
       <li class="nav-item">
-        <a class="nav-link" th:href="@{/tableview}">TableView</a>
+        <a class="nav-link" th:href="@{/tableview}">テーブルビュー</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" th:href="@{/student}">Student</a>
+        <a class="nav-link" th:href="@{/student}">生徒</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" th:href="@{/schedule}">Schedule</a>
+        <a class="nav-link" th:href="@{/schedule}">スケジュール</a>
       </li>
       <li class="nav-item active">
-        <a class="nav-link" th:href="@{/classroom}">Classroom <span class="sr-only">(current)</span></a>
+        <a class="nav-link" th:href="@{/classroom}">教室 <span class="sr-only">(current)</span></a>
       </li>
     </ul>
   </div>
   <form class="form-inline">
-    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Log out</button>
+    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">ログアウト</button>
   </form>
 </nav>
       
@@ -52,10 +52,10 @@
             <div class="table-title">
                 <div class="row">
                     <div class="col-sm-6">
-						<h2><b>Classroom</b></h2>
+						<h2><b>教室</b></h2>
 					</div>
 					<div class="col-sm-6">
-						<a href="#addClassModal" class="btn btn-success" data-toggle="modal"><i class="material-icons">&#xE147;</i> <span>Add New Place</span></a>
+						<a href="#addClassModal" class="btn btn-success" data-toggle="modal"><i class="material-icons">&#xE147;</i> <span>場所追加</span></a>
 												
 					</div>
                 </div>
@@ -64,18 +64,18 @@
                 <thead>
                     <tr>
 												<th>ID</th>
-                        <th>Name</th>
-                        <th>Location</th>
-												<th>Description</th>
-                        <th>Actions</th>
+                        <th>名前</th>
+                        <th>場所</th>
+												<th>詳細</th>
+                        <th>動作</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr th:each="classroom : ${listClass}">
                         <td th:text="${classroom.cid}">ID</td>
-												<td th:text="${classroom.cname}">Name</td>
-												<td><a th:href="@{${classroom.clink}}" target="_blank">Click Here</a></td>
-                        <td th:text="${classroom.cdesc}">Description</td>
+												<td th:text="${classroom.cname}">名前</td>
+												<td><a th:href="@{${classroom.clink}}" target="_blank">こちらクリック</a></td>
+                        <td th:text="${classroom.cdesc}">詳細</td>
                         <td>
                             <a href="#editClassModal" class="edit" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></a>
                             <a href="#deleteClassModal" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a>
@@ -91,7 +91,7 @@
 			<div class="modal-content">
 				<form action="#" th:action="@{/addClass}" th:object="${classroom}" method="post">
 					<div class="modal-header">						
-						<h4 class="modal-title">Add New Place</h4>
+						<h4 class="modal-title">教室追加</h4>
 						<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
 					</div>
 					<div class="modal-body">
@@ -100,21 +100,21 @@
             <input type="text" th:field="*{cid}" class="form-control" required>
                         </div>					
 						<div class="form-group">
-							<label>Name</label>
+							<label>名前</label>
 							<input type="text" th:field="*{cname}" class="form-control" required>
 						</div>
 						<div class="form-group">
-							<label>Location</label>
+							<label>場所</label>
 							<input type="text" th:field="*{clink}" class="form-control" required>
 						</div>
 						<div class="form-group">
-							<label>Description</label>
+							<label>詳細</label>
 							<textarea th:field="*{cdesc}" class="form-control" required></textarea>
 						</div>				
 					</div>
 					<div class="modal-footer">
-						<input type="button" class="btn btn-default" data-dismiss="modal" value="Cancel">
-						<input type="submit" class="btn btn-success" value="Add">
+						<input type="button" class="btn btn-default" data-dismiss="modal" value="取消">
+						<input type="submit" class="btn btn-success" value="追加">
 					</div>
 				</form>
 			</div>
@@ -126,7 +126,7 @@
 			<div class="modal-content">
 				<form action="#" th:action="@{/updateClass}" th:object="${classroom}" method="post">
 					<div class="modal-header">						
-						<h4 class="modal-title">Edit Place</h4>
+						<h4 class="modal-title">教室変更</h4>
 						<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
 					</div>
 					<div class="modal-body">	
@@ -135,21 +135,21 @@
                             <input type="text" th:field="*{cid}" class="form-control" required>
               </div>				
 						  <div class="form-group">
-									<label>Name</label>
+									<label>名前</label>
 									<input type="text" th:field="*{cname}" class="form-control" required>
 							</div>
 						  <div class="form-group">
-									<label>Location</label>
+									<label>場所</label>
 									<input type="text" th:field="*{clink}" class="form-control" required>
 						  </div>
 							<div class="form-group">
-									<label>Description</label>
+									<label>詳細</label>
 									<textarea th:field="*{cdesc}" class="form-control" required></textarea>
 							</div>			
 					</div>
 					<div class="modal-footer">
-						<input type="button" class="btn btn-default" data-dismiss="modal" value="Cancel">
-						<input type="submit" class="btn btn-info" value="Save">
+						<input type="button" class="btn btn-default" data-dismiss="modal" value="取消">
+						<input type="submit" class="btn btn-info" value="保存">
 					</div>
 				</form>
 			</div>
@@ -161,32 +161,32 @@
 			<div class="modal-content">
 				<form action="#" th:action="@{/deleteClass}" th:object="${classroom}" method="post">
 					<div class="modal-header">						
-						<h4 class="modal-title">Delete Class</h4>
+						<h4 class="modal-title">教室削除</h4>
 						<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
 					</div>
 					<div class="modal-body">					
-						<p>Are you sure you want to delete these Records?</p>
-						<p class="text-warning"><small>This action cannot be undone.</small></p>
+						<p>こちらを削除してもよろしいでしょうか？</p>
+						<p class="text-warning"><small>こちらの実行は元に戻す事ができません！</small></p>
 						<div class="form-group">
                             <label>ID</label>
                             <input type="text" th:field="*{cid}" class="form-control" required>
               </div>				
 						  <div class="form-group">
-									<label>Name</label>
+									<label>名前</label>
 									<input type="text" th:field="*{cname}" class="form-control" required>
 							</div>
 						  <div class="form-group">
-									<label>Location</label>
+									<label>場所</label>
 									<input type="text" th:field="*{clink}" class="form-control" required>
 						  </div>
 							<div class="form-group">
-									<label>Description</label>
+									<label>詳細</label>
 									<textarea th:field="*{cdesc}" class="form-control" required></textarea>
 							</div>
 					</div>
 					<div class="modal-footer">
-						<input type="button" class="btn btn-default" data-dismiss="modal" value="Cancel">
-						<input type="submit" class="btn btn-danger" value="Delete">
+						<input type="button" class="btn btn-default" data-dismiss="modal" value="取消">
+						<input type="submit" class="btn btn-danger" value="削除">
 					</div>
 				</form>
 			</div>

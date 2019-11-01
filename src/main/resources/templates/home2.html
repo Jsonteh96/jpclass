@@ -7,7 +7,7 @@
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <link rel="stylesheet" type="text/css" href="css/style_home.css">
+    <link rel="stylesheet" type="text/css" href="css/style_home2.css">
     <title>ホーム</title>
   </head>
   <body>
@@ -23,11 +23,11 @@
     <div>
            <table class="container">
                <tr>
-                  <td  >
-                                                    こちらはテーブルビュー    
+                  <td>
+                                                    こちらはテーブルビュー  
                   </td>
                   <td  >
-                                                   こちらは生徒の動作ができます    
+                                                     こちらは生徒モジュールの動作ができます     
                   </td>
                </tr>
                <tr>
@@ -46,8 +46,11 @@
                   <td  >
                                                         こちらはスケジュール管理    
                   </td>
+                  <td>
+                                                        こちらは先生モジュールの動作ができます
+                  </td>
                   <td  >
-                                                        こちらは教室の動作ができます    
+                                                        こちらは教室動作ができます    
                   </td>
                </tr>
                <tr>
@@ -59,10 +62,19 @@
                         </form>
                     </td>
                     <td>
+                                                     
+                       <form action="#" th:action="@{/teacher}" method="post">
+                            <button class="button" style="vertical-align: middle"><span>先生</span></button>
+                        </form>
+                   </td>
+                    <td>
                         <form action="#" th:action="@{/classroom}" method="post">
                             <button class="button" style="vertical-align:middle"><span>教室</span></button>
                         </form>
                     </td>
+               </tr>
+               <tr>
+                                    
                </tr>
            </table>
        </div>
