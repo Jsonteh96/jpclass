@@ -1,0 +1,189 @@
+<!doctype html>
+<html lang="en" 
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Material Design for Bootstrap fonts and icons -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Material+Icons">
+
+    <!-- Material Design for Bootstrap CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/bootstrap-material-design@4.1.1/dist/css/bootstrap-material-design.min.css" integrity="sha384-wXznGJNEXNG1NFsbm0ugrLFMQPWswR3lds2VeinahP8N0zJw9VWSopbjv2x7WCvX" crossorigin="anonymous">
+<link rel="stylesheet" type="text/css" href="css/style_adminTeacher.css">
+    <title>先生</title>
+  </head>
+  <body>
+
+<!--nav bar-->  
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <div class="collapse navbar-collapse" id="navbarNav">
+    <ul class="navbar-nav">
+      <!--<li class="nav-item">
+        <img src="image/human2.png" class="pic">
+      </li> -->
+      <li class="nav-item ">
+        <a class="nav-link" th:href="@{/adminHome}">ホーム</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" th:href="@{/adminTableview}" >テーブルビュー</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" th:href="@{/adminStudent}">生徒<span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" th:href="@{/adminSchedule}">スケジュール</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" th:href="@{/adminClassroom}">教室</a>
+      </li> 
+	  <li class="nav-item active">
+        <a class="nav-link" th:href="@{/adminTeacher}">先生</a>
+      </li> 
+    </ul>
+  </div>
+  <form class="form-inline">
+    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">ログアウト</button>
+  </form>
+</nav>
+      
+    <form class="form-inline my-2 my-lg-0 bg-light">
+        <div class="search-box">
+            <input class="form-control mr-sm-2" type="text" placeholder="検索" aria-label="Search" id="myInput" onkeyup="myFunction()" title="Type in a name">
+        </div>  
+    </form>
+        <div class="container">
+        <div class="table-wrapper">
+            <div class="table-title">
+                <div class="row">
+                    <div class="col-sm-6">
+                        <div class="header-std">
+                            <h2><b>先生</b></h2>
+                        </div>
+					</div>
+					<div class="col-sm-6">
+                        <div class="header-add">
+                        <a href="#addStudentModal" class="btn btn-success" data-toggle="modal"><i class="material-icons">&#xE147;</i> <span>先生追加</span></a>	
+                        </div>
+					</div>
+                </div>
+            </div>
+            <table class="table table-striped table-hover" id="myTable">
+                <thead>
+                    <tr>
+						
+                        <th>ID</th>
+                        <th>名前</th>
+						<th>メール</th>
+                        <th>動作</th>
+                    </tr>
+                </thead>
+                <tbody>
+                
+                    <tr th:each="teacher : ${listTeachers}">
+                        <td th:text="${teacher.id}">ITE</td>
+                        <td th:text="${teacher.name}">名前</td>
+                        <td th:text="${teacher.email}">メール</td>
+                        <td>
+                            <a href="#editTeacherModal" class="edit" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></a>
+                            <a href="#deleteTeacherModal" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a>
+                        </td>
+                    </tr> 
+                </tbody>
+            </table>
+        </div>
+    </div>      
+      <!-- Add Modal HTML -->
+      <div id="addTeacherModal" class="modal fade">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<form action="#" th:action="@{/addTeacher}" th:object="${teacher}" method="post">
+					<div class="modal-header">						
+						<h4 class="modal-title">先生追加</h4>
+						<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+					</div>
+					<div class="modal-body">					
+						<div class="form-group">
+							<label>ID</label>
+							<input type="text" th:field="*{id}" class="form-control" required>
+						</div>
+						<div class="form-group">
+							<label>名前</label>
+							<input type="text" th:field="*{name}" class="form-control" required>
+						</div>
+						<div class="form-group">
+							<label>メール</label>
+							<input type="text" th:field="*{nationality}" class="form-control" required>
+						</div>	
+					</div>
+					<div class="modal-footer">
+						<input type="button" class="btn btn-default" data-dismiss="modal" value="取消">
+						<input type="submit" class="btn btn-info" value="保存">
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+    <!-- Edit Modal HTML -->
+	<div id="editTeacherModal" class="modal fade">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<form action="#" th:action="@{/updateTeacher}" th:object="${teacher}" method="post">
+					<div class="modal-header">						
+						<h4 class="modal-title">先生変更</h4>
+						<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+					</div>
+					<div class="modal-body">					
+						<div class="form-group">
+							<label>ID</label>
+							<input type="text" th:field="*{id}" class="form-control" required>
+						</div>
+						<div class="form-group">
+							<label>名前</label>
+							<input type="text" th:field="*{name}" class="form-control" required>
+						</div>
+						<div class="form-group">
+							<label>メール</label>
+							<input type="text" th:field="*{nationality}" class="form-control" required>
+						</div>
+					</div>
+					<div class="modal-footer">
+						<input type="button" class="btn btn-default" data-dismiss="modal" value="取消">
+						<input type="submit" class="btn btn-info" value="保存">
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+    <!-- Delete Modal HTML -->
+	<div id="deleteTeacherModal" class="modal fade">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<form>
+					<div class="modal-header">						
+						<h4 class="modal-title">削除</h4>
+						<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+					</div>
+					<div class="modal-body">					
+						<p>こちらを削除してもよろしいでしょうか？</p>
+						<p class="text-warning"><small>こちらの実行は元に戻す事ができません！</small></p>
+					</div>
+					<div class="modal-footer">
+						<input type="button" class="btn btn-default" data-dismiss="modal" value="取消">
+						<input type="submit" class="btn btn-danger" value="削除">
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+    <script src="js/adminTeacher.js"></script>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/popper.js@1.12.6/dist/umd/popper.js" integrity="sha384-fA23ZRQ3G/J53mElWqVJEGJzU0sTs+SvzG8fXVWP+kJQ1lwFAOkcUOysnlKJC33U" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/bootstrap-material-design@4.1.1/dist/js/bootstrap-material-design.js" integrity="sha384-CauSuKpEqAFajSpkdjv3z9t8E7RlpJ1UP0lKM/+NdtSarroVKu069AlsRPKkFBz9" crossorigin="anonymous"></script>
+    <script>$(document).ready(function() { $('body').bootstrapMaterialDesign(); });</script>
+  </body>
+</html>

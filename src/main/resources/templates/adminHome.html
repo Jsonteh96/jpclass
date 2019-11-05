@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="css/style_adminHome.css">
+    <title>ホーム</title>
+  </head>
+  <body>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <h1>ホーム</h1>
+            </div>
+            <form class="form-inline">
+                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">ログアウト</button>
+            </form>
+        </nav>
+		<nav>
+		<div id="container1">
+			<div>
+				<center>こちらはテーブルビュー</center>
+				<form action="#" th:action="@{/tableview}" method="post">
+					<button class="button" style="vertical-align:middle"><span>テーブルビュー</span></button>
+				</form>
+			</div>
+			<div>
+				<center>こちらは生徒モジュールの動作</center>
+				<form action="#" th:action="@{/student}" method="post">
+					<button class="button" style="vertical-align:middle"><span>生徒</span></button>
+				</form>
+			</div>
+		</div>
+		<div id="container2">
+			<div>
+				<center>こちらは先生モジュールの動作</center>
+				<form action="#" th:action="@{/teacher}" method="post">
+					<button class="button" style="vertical-align: middle"><span>先生</span></button>
+				</form>
+			</div>
+		</div>
+		<div id="container3">
+			<div>
+				<center>こちらはスケジュール管理</center>
+				<form action="#" th:action="@{/schedule}" method="post">
+					<button class="button" style="vertical-align:middle"><span>スケジュール</span></button>
+				</form>
+			</div>
+			<div>
+				<center>こちらは教室動作</center>
+				<form action="#" th:action="@{/classroom}" method="post">
+					<button class="button" style="vertical-align:middle"><span>教室</span></button>
+				</form>             
+			</div>
+		</div>
+<!--
+    <div>
+	<table  class="container">
+               <tr>
+                  <td>
+					こちらはテーブルビュー  
+                  </td>
+                  <td>
+					こちらは生徒モジュールの動作ができます     
+                  </td>
+               </tr>
+               <tr>
+                    <td>
+                        <form action="#" th:action="@{/tableview}" method="post">
+                            <button class="button" style="vertical-align:middle"><span>テーブルビュー</span></button>
+                        </form>
+                    </td>
+                    <td>
+                        <form action="#" th:action="@{/student}" method="post">
+                            <button class="button" style="vertical-align:middle"><span>生徒</span></button>
+                        </form>
+                    </td>
+               </tr>
+               <tr>
+                  <td>
+					こちらはスケジュール管理    
+                  </td>
+                  <td>
+					こちらは教室動作ができます
+                  </td>
+               </tr>
+               <tr>
+                    <td>
+
+                        <form action="#" th:action="@{/schedule}" method="post">
+
+                            <button class="button" style="vertical-align:middle"><span>スケジュール</span></button>
+                        </form>
+                    </td>
+                    <td>
+                             <form action="#" th:action="@{/classroom}" method="post">
+                <button class="button" style="vertical-align:middle"><span>教室</span></button>
+            </form>                                 
+                   </td>
+                </tr>		   				      
+            </table>
+       </div>
+	   <div class="detail">
+			こちらは先生モジュールの動作ができます
+	   </div>
+	   <div class="button1">
+			<form action="#" th:action="@{/teacher}" method="post">
+                    <button class="button" style="vertical-align: middle"><span>先生</span></button>
+            </form>
+	   </div>
+	    -->
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  </body>
+</html>
