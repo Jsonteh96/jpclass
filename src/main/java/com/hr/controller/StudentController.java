@@ -9,7 +9,9 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import com.hr.model.Login;
 import com.hr.model.Student;
+import com.hr.service.LoginService;
 import com.hr.service.StudentService;
 
 @Controller
@@ -17,6 +19,8 @@ public class StudentController {
 	
 	@Autowired
 	private StudentService studentService;
+	@Autowired
+	private LoginService loginService;
 	
 	@RequestMapping("/student")
 	public String viewStudentPage(Model model) {
@@ -30,6 +34,7 @@ public class StudentController {
 	@RequestMapping(value = "/addStudent", method = RequestMethod.POST)
 	public String addStudent(@ModelAttribute("student") Student student) {
 		studentService.addStudent(student);
+		loginService.addStudentLogin(student);
 	    return "redirect:/student";
 	}
 	

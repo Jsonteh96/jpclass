@@ -30,14 +30,14 @@
           </div>
           <br>
           <br>
-            <form class="form-signin">
+            <form class="form-signin" th:action="@{/login}" th:object="${login}" method="post">
               <div class="form-label-group">
-                <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
+                <input type="text" id="inputEmail" th:field="*{userId}" class="form-control" placeholder="User ID" required autofocus>
                 <label for="inputEmail">ID</label>
               </div>
 
               <div class="form-label-group">
-                <input type="password" id="inputPassword" class="form-control" placeholder="Password" required>
+                <input type="password" id="inputPassword" th:field="*{password}" class="form-control" placeholder="Password" required>
                 <label for="inputPassword">パスワード</label>
               </div>
 
