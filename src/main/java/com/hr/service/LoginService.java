@@ -19,6 +19,10 @@ public class LoginService {
 		return loginRepository.findById(id);
 	}
 	
+	public void addLogin(Login login) {
+		loginRepository.save(login);	
+	}
+	
 	public void addStudentLogin(Student student) {
 		Login login = new Login();
 		login.setUserId(student.getId());

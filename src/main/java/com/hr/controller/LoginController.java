@@ -1,8 +1,5 @@
 package com.hr.controller;
 
-import java.util.List;
-import java.util.Optional;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -26,17 +23,50 @@ public class LoginController {
 	    return "index";
 	}
 	
+	@RequestMapping(value ="/changepassword", method = RequestMethod.POST)
+	public String changePassword(@ModelAttribute("login") Login login,Model model){
+		loginService.addLogin(login);
+		return "index";
+	}
+	
 	@RequestMapping(value ="/login", method = RequestMethod.POST)
-	public String Login(@ModelAttribute("login") Login login){
-		String userId = loginService.getLogin(login.getUserId()).get().getUserId();
-		String password = loginService.getLogin(login.getUserId()).get().getPassword();
-		String role = loginService.getLogin(login.getUserId()).get().getRole();
-		boolean status = loginService.getLogin(login.getUserId()).get().isLoggingFirstTime();
-		System.out.println(userId);
-		System.out.println(password);
-		System.out.println(role);
-		System.out.println(status);
-		return "redirect:/home";
+	public String Login(@ModelAttribute("login") Login login,Model model){
+		
+		String userId = login.getUserId();
+		String password = login.getPassword();
+		boolean userExist = loginService.getLogin(userId).isPresent();
+		//boolean firstTime = loginService.getLogin(login.getUserId()).get().isLoggingFirstTime();
+		
+		if(userExist) {
+			
+			String userPassword = loginService.getLogin(login.getUserId()).get().getPassword();
+			String userRole = loginService.getLogin(login.getUserId()).get().getRole();
+			boolean userStatus = loginService.getLogin(login.getUserId()).get().isLoggingFirstTime();	
+			
+			if(password.equals(userPassword)) {
+				
+				if(userStatus) {
+					Login newLogin = new Login();
+					newLogin.setUserId(userId);
+					newLogin.setRole(userRole);
+					newLogin.setLoggingFirstTime(false);
+					model.addAttribute("newLogin", newLogin);
+					return "createPassword";
+					
+				}else {
+					return "index";	
+				}
+				
+			}else {
+				model.addAttribute("WrongPassword",true);
+				return "index";	
+			}
+				
+		}else {
+			model.addAttribute("UserDoesntExist",true);
+			return "index";
+		}
+		
 	}
 
 }

@@ -51,6 +51,8 @@
               <button class="btn btn-lg btn-light btn-outline-primary	 btn-block text-uppercase" type="submit" name="submit" id="submit">ログイン</button>
               <br>
 			  <br>
+			  <p th:if="${UserDoesntExist}" class="text-danger">User Does not Exist</p>
+			  <p th:if="${WrongPassword}" class="text-danger">Wrong Password</p>
 			  <span id="error_message" class="text-danger"></span>
 			  <span id="success_message" class="text-danger"></span>
             </form>
