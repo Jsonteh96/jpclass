@@ -54,7 +54,17 @@ public class LoginController {
 					return "createPassword";
 					
 				}else {
-					return "index";	
+					if(userRole.equals("student")) {
+						return "adminSchedule";	
+					}
+					else if(userRole.equals("teacher")) {
+						return "home";	
+					}
+					else if(userRole.equals("admin")) {
+						return "home2";	
+					}else {
+						return "index";
+					}	
 				}
 				
 			}else {
