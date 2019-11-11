@@ -1,6 +1,7 @@
 package com.hr.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -15,6 +16,8 @@ public class LoginController {
 	
 	@Autowired
 	private LoginService loginService;
+	@Autowired
+	private BCryptPasswordEncoder passwordEncoder;
 	
 	@RequestMapping("/")
 	public String viewLoginPage(Model model) {
@@ -34,16 +37,18 @@ public class LoginController {
 		
 		String userId = login.getUserId();
 		String password = login.getPassword();
+		String encryptPwd = passwordEncoder.encode(password);
+		System.out.println(encryptPwd);
 		boolean userExist = loginService.getLogin(userId).isPresent();
-		//boolean firstTime = loginService.getLogin(login.getUserId()).get().isLoggingFirstTime();
 		
 		if(userExist) {
 			
 			String userPassword = loginService.getLogin(login.getUserId()).get().getPassword();
+			System.out.println(userPassword);
 			String userRole = loginService.getLogin(login.getUserId()).get().getRole();
 			boolean userStatus = loginService.getLogin(login.getUserId()).get().isLoggingFirstTime();	
 			
-			if(password.equals(userPassword)) {
+			if(encryptPwd.equals(userPassword)) {
 				
 				if(userStatus) {
 					Login newLogin = new Login();
