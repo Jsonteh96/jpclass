@@ -3,9 +3,11 @@ package com.hr.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
@@ -21,6 +23,8 @@ public class StudentController {
 	private StudentService studentService;
 	@Autowired
 	private LoginService loginService;
+	@Autowired
+	private JdbcTemplate jdbcTemplate;
 	
 	@RequestMapping("/student")
 	public String viewStudentPage(Model model) {
@@ -44,9 +48,15 @@ public class StudentController {
 	    return "redirect:/student";
 	}
 	
-	@RequestMapping(value = "deleteStudent/{id}")
+	//@RequestMapping(path = "/student/{id}", method = RequestMethod.DELETE)
+	//String destory(Model model, @PathVariable("id") int id) {
+	//	jdbcTemplate.update("delete from user where id = ? ", id);
+	//    return "redirect:/sample";
+	//}
+	
+	@RequestMapping(value = "/deleteStudent/{id}") //@{/deleteStudent/{id}(id=${student.id})}
 	public String deleteStudent(@ModelAttribute("id") String id) {
-		System.out.println("jjj");
+		System.out.println("Hello World!");
 		studentService.deleteStudent(id);
 	    return "redirect:/student";
 	}
