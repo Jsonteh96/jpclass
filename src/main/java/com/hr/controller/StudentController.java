@@ -23,8 +23,6 @@ public class StudentController {
 	private StudentService studentService;
 	@Autowired
 	private LoginService loginService;
-	@Autowired
-	private JdbcTemplate jdbcTemplate;
 	
 	@RequestMapping("/student")
 	public String viewStudentPage(Model model) {

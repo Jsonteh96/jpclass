@@ -40,6 +40,7 @@ public class TeacherController {
 	@RequestMapping(value = "/updateTeacher", method = RequestMethod.POST)
 	public String updateTeacher(@ModelAttribute("teacher") Teacher teacher) {
 		teacherService.updateTeacher(teacher);
+		loginService.addTeacherLogin(teacher);
 	    return "redirect:/teacher";
 	}
 	
