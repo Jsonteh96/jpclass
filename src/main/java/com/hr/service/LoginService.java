@@ -33,7 +33,7 @@ public class LoginService {
 	}
 	
 	public void addStudentLogin(Student student) {
-		String password = "humanStudent";
+		String password = "123";
 		String encryptPwd = passwordEncoder.encode(password);
 		Login login = new Login();
 		login.setUserId(student.getId());
@@ -44,7 +44,7 @@ public class LoginService {
 	}
 	
 	public void addTeacherLogin(Teacher teacher) {
-		String password = "humanTeacher";
+		String password = "123";
 		String encryptPwd = passwordEncoder.encode(password);
 		Login login = new Login();
 		login.setUserId(teacher.getId());
@@ -55,7 +55,7 @@ public class LoginService {
 	}
 	
 	public void addAdminLogin(Admin admin) {
-		String password = "humanAdmin";
+		String password = "123";
 		String encryptPwd = passwordEncoder.encode(password);
 		Login login = new Login();
 		login.setUserId(admin.getId());
