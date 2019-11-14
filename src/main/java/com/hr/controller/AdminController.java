@@ -1,6 +1,9 @@
 package com.hr.controller;
 
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -11,7 +14,12 @@ public class AdminController {
 	 
 	
 	@RequestMapping({"/home","/home.html"})
-	public String viewHomePage(Model model) {
+	public String viewHomePage(Model model,HttpServletRequest request) {
+		HttpSession session =  request.getSession();
+		String userId = (String) session.getAttribute("userId");
+		String userRole = (String) session.getAttribute("userRole");
+		System.out.println("session "+userId);
+		System.out.println("session "+userRole);
 	    return "home";
 	}
 	
