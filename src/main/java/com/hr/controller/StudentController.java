@@ -2,6 +2,9 @@ package com.hr.controller;
 
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Controller;
@@ -33,6 +36,35 @@ public class StudentController {
 	    return "student";
 	}
 	
+	
+	
+	@RequestMapping("/group")
+	public String viewGroupPage(Model model,HttpServletRequest request) {
+		
+		Student stdlist = new Student();
+		List<Student> listStudents = studentService.getAllStudents();
+		model.addAttribute("student", stdlist);
+	    model.addAttribute("listStudents", listStudents);
+		
+		HttpSession session = request.getSession();
+		String userId = (String) session.getAttribute("userId");
+		System.out.println("Current User: "+userId);
+		boolean userExist = loginService.getLogin(userId).isPresent();
+		
+		if (userExist){
+			String userName = studentService.getStudent(userId).get().getName();
+			String userGroup = studentService.getStudent(userId).get().getGroup();
+			Student student = new Student();
+			student.setId(userId);
+			student.setName(userName);
+			student.setGroup(userGroup);
+			model.addAttribute("getCurrentUser", student);
+			
+		}
+		
+		    return "group";
+		}
+	
 	@RequestMapping(value = "/addStudent", method = RequestMethod.POST)
 	public String addStudent(@ModelAttribute("student") Student student) {
 		studentService.addStudent(student);
@@ -45,12 +77,6 @@ public class StudentController {
 		studentService.updateStudent(student);
 	    return "redirect:/student";
 	}
-	
-	//@RequestMapping(path = "/student/{id}", method = RequestMethod.DELETE)
-	//String destory(Model model, @PathVariable("id") int id) {
-	//	jdbcTemplate.update("delete from user where id = ? ", id);
-	//    return "redirect:/sample";
-	//}
 	
 	@RequestMapping(value = "/deleteStudent/{id}") //@{/deleteStudent/{id}(id=${student.id})}
 	public String deleteStudent(@ModelAttribute("id") String id) {
